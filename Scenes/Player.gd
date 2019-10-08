@@ -21,3 +21,5 @@ func _process(delta):
 			move.y = + SPEED
 		
 	move_and_slide(move)
+	
+	$AnimationPlayer.play("idle")

@@ -2,9 +2,8 @@
 
 [ext_resource path="res://Assets/Tiles.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Jelly.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/jelly1.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/CollisionShape2D.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/CollisionShape2D.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Jelly.png" type="Texture" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -121,6 +120,22 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 5.15337, 6.45228 )
 
+[sub_resource type="Animation" id=14]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Jelly:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 4, 3, 2, 1 ]
+}
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
@@ -132,17 +147,19 @@ tile_data = PoolIntArray( -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534
 [node name="Player" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Player"]
-position = Vector2( 82.3798, 12.6331 )
-texture = ExtResource( 3 )
-hframes = 9
-frame = 2
-script = ExtResource( 4 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 82.2738, 12.9796 )
 shape = SubResource( 13 )
-script = ExtResource( 5 )
+script = ExtResource( 3 )
+
+[node name="Jelly" type="Sprite" parent="Player"]
+position = Vector2( 82.5716, 12.7395 )
+texture = ExtResource( 4 )
+hframes = 8
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+anims/idle = SubResource( 14 )
 
 [node name="Level" type="TileMap" parent="."]
 tile_set = SubResource( 12 )
