@@ -26,7 +26,6 @@ func _process(delta):
 	
 	set_animation()
 	
-	$AnimationPlayer.play("idle")
 	
 func check_key_input():
 	if Input.is_action_pressed("left"):
@@ -38,11 +37,13 @@ func check_key_input():
 		
 func set_animation():
 	if movement.x < 0:
-		$AnimationPlayer.play("go")
 		$moves.flip_h=true
 	if movement.x > 0:
-		$AnimationPlayer.play("go")
 		$moves.flip_h= false
+	if movement.y > 0:
+		$AnimationPlayer.play("idle")
+	else:
+		$AnimationPlayer.play("go")
 #	if Input.is_action_pressed("left"):
 #		move.x = - SPEED
 #	if Input.is_action_pressed("right"):

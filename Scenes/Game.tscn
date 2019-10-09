@@ -5,6 +5,9 @@
 [ext_resource path="res://Scenes/CollisionShape2D.gd" type="Script" id=3]
 [ext_resource path="res://Assets/moves.png" type="Texture" id=4]
 
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
@@ -17,6 +20,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
@@ -26,13 +32,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
-[sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
-
-[sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
-
-[sub_resource type="TileSet" id=12]
+[sub_resource type="TileSet" id=10]
 0/name = "BackTile"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -64,65 +64,64 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 2 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 3 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 2, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 10 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 1, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 5.15337, 6.45228 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 resource_name = "go"
-length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("moves:frame")
@@ -131,13 +130,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 7, 8, 9, 8 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 resource_name = "idle"
 loop = true
 tracks/0/type = "value"
@@ -156,7 +155,7 @@ tracks/0/keys = {
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
-tile_set = SubResource( 12 )
+tile_set = SubResource( 10 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0 )
@@ -166,22 +165,23 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 82.2738, 12.9796 )
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-anims/go = SubResource( 15 )
-anims/idle = SubResource( 14 )
+autoplay = "go"
+anims/go = SubResource( 12 )
+anims/idle = SubResource( 13 )
 
 [node name="moves" type="Sprite" parent="Player"]
 position = Vector2( 82.284, 12.7083 )
 texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
-frame = 8
+frame = 9
 
 [node name="Level" type="TileMap" parent="."]
-tile_set = SubResource( 12 )
+tile_set = SubResource( 10 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -131075, 1, 0, -131074, 1, 1, -131073, 1, 1, -196608, 1, 1, -196607, 1, 1, -196606, 1, 1, -196605, 1, 1, -196604, 1, 1, -196603, 1, 1, -196602, 1, 1, -196601, 1, 1, -196600, 1, 1, -196599, 1, 1, -196598, 1, 1, -196597, 1, 1, -196596, 1, 1, -196595, 1, 2, -65539, 1, 65536, -65538, 1, 0, -65537, 1, 131073, -131072, 1, 131073, -131071, 1, 131073, -131070, 1, 131073, -131069, 1, 131073, -131068, 1, 131073, -131067, 1, 131073, -131066, 1, 131073, -131065, 1, 131073, -131064, 1, 131073, -131063, 1, 131073, -131062, 1, 0, -131061, 1, 65537, -131060, 1, 65537, -131059, 1, 65538, -3, 1, 65536, -2, 1, 65538, -65526, 1, 65536, -65525, 1, 65537, -65524, 1, 65537, -65523, 1, 65538, 65533, 1, 65536, 65534, 1, 0, 65535, 1, 1, 0, 1, 2, 9, 1, 0, 10, 1, 0, 11, 1, 65537, 12, 1, 65537, 13, 1, 65538, 131069, 1, 65536, 131070, 1, 65537, 131071, 1, 65537, 65536, 1, 65538, 65545, 1, 131072, 65546, 1, 131073, 65547, 1, 131073, 65548, 1, 0, 65549, 1, 65538, 196605, 1, 65536, 196606, 1, 65537, 196607, 1, 65537, 131072, 1, 65538, 131084, 1, 65536, 131085, 1, 65538, 262141, 1, 65536, 262142, 1, 65537, 262143, 1, 65537, 196608, 1, 65538, 196617, 1, 0, 196618, 1, 2, 196620, 1, 65536, 196621, 1, 65538, 327677, 1, 65536, 327678, 1, 65537, 327679, 1, 65537, 262144, 1, 65538, 262153, 1, 65536, 262154, 1, 0, 262155, 1, 1, 262156, 1, 0, 262157, 1, 65538, 393213, 1, 65536, 393214, 1, 65537, 393215, 1, 65537, 327680, 1, 0, 327681, 1, 1, 327682, 1, 1, 327683, 1, 1, 327684, 1, 1, 327685, 1, 1, 327686, 1, 1, 327687, 1, 1, 327688, 1, 1, 327689, 1, 0, 327690, 1, 65537, 327691, 1, 65537, 327692, 1, 65537, 327693, 1, 65538, 458749, 1, 131072, 458750, 1, 131073, 458751, 1, 131073, 393216, 1, 131073, 393217, 1, 131073, 393218, 1, 131073, 393219, 1, 131073, 393220, 1, 131073, 393221, 1, 131073, 393222, 1, 131073, 393223, 1, 131073, 393224, 1, 131073, 393225, 1, 131073, 393226, 1, 131073, 393227, 1, 131073, 393228, 1, 131073, 393229, 1, 131074 )
