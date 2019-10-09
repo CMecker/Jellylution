@@ -21,10 +21,10 @@ func _process(delta):
 	movement.y += GRAVITY * delta
 
 	check_key_input()
+	set_animation()
 
 	move_and_slide(movement, UP_VECTOR)
 	
-	set_animation()
 	
 	
 func check_key_input():
@@ -36,13 +36,15 @@ func check_key_input():
 		movement.y = -JUMP_POWER
 		
 func set_animation():
-	if movement.x < 0:
+	if movement.x < 0 and movement.y > 0:
+		$AnimationPlayer.play("push")
 		$moves.flip_h=true
-	if movement.x > 0:
+	if movement.x > 0 and movement.y > 0:
+		$AnimationPlayer.play("push")
 		$moves.flip_h= false
-	if movement.y > 0:
+	if movement.x == 0 and movement.y > 0:
 		$AnimationPlayer.play("idle")
-	else:
+	if movement.y < 0:
 		$AnimationPlayer.play("go")
 #	if Input.is_action_pressed("left"):
 #		move.x = - SPEED
