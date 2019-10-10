@@ -149,7 +149,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 8.59894, 10.4232 )
+extents = Vector2( 5.89822, 7.44766 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( -4.07677, 25.0115 )
@@ -167,16 +167,16 @@ anims/idle = SubResource( 6 )
 anims/push = SubResource( 7 )
 
 [node name="moves" type="Sprite" parent="."]
-position = Vector2( 82.284, 12.7083 )
+position = Vector2( 82.284, 12.6186 )
 texture = ExtResource( 1 )
 vframes = 8
 hframes = 8
-frame = 12
+frame = 9
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2( 0.115982, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( 82.3197, 12.8723 )
+position = Vector2( 82.1402, 13.1415 )
 shape = SubResource( 8 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
