@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+const enemy_shrimp = preload(\"res://Scenes/Shrimp.tscn\")
+var timer
+
+
+func create_timer(wait_time):
+	timer = Timer.new()
+	timer.set_wait_time(wait_time)
+	timer.set_one_shot(true)
+	timer.connect(\"timeout\", timer, \"queue_free\")
+	add_child(timer)
+	timer.start()
+	return timer
+
+func _ready():
+	spawn()
+	pass
+
+func spawn():
+	while true:
+		randomize()
+		
+		var enemy = enemy_shrimp.instance()
+		var pos = Vector2()
+		pos.x = 0
+		pos.y = rand_range(-16, get_viewport().get_visible_rect().size[1]-16)
+		print(pos)
+		enemy.position = pos
+		get_node(\"container\").add_child(enemy)
+		
+		yield(create_timer(2), \"timeout\")
+	pass"
+
+[node name="Spawner" type="Node"]
+script = SubResource( 1 )
+
+[node name="container" type="Node" parent="."]

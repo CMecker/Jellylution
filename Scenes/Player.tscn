@@ -37,7 +37,6 @@ func _process(delta):
 	set_animation()
 
 	move_and_slide(movement, UP_VECTOR)
-	print(is_alive)
 	
 	
 	
