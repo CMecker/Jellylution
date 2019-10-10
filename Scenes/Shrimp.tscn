@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/moves.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+
+const GRAVITY = 20
+const SPEED = 30
+const JUMP_POWER=50
+const UP_VECTOR = Vector2(0,-1)
+var movement = Vector2(SPEED, 0)
+
+func is_shirmp():
+	pass
+func _physics_process(delta):
+	move_and_slide(movement, UP_VECTOR)
+	
+
+"
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.84644
+
+[node name="Shrimp" type="KinematicBody2D"]
+script = SubResource( 1 )
+
+[node name="Shrimp" type="Sprite" parent="."]
+position = Vector2( 25.5106, 25.5106 )
+texture = ExtResource( 1 )
+vframes = 8
+hframes = 8
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 24.5728, 25.5106 )
+shape = SubResource( 2 )
