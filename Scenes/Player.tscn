@@ -8,9 +8,9 @@ script/source = "extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = \"text\"
-const GRAVITY = 20
-const SPEED = 30
-const JUMP_POWER=50
+const GRAVITY = 250
+const SPEED = 300
+const JUMP_POWER=500
 const UP_VECTOR = Vector2(0,-1)
 var movement = Vector2()
 var is_alive = true
@@ -22,8 +22,6 @@ func _process(delta):
 	if is_alive == false:
 		$AnimationPlayer.play(\"die\")
 		return
-
-	movement.x = 0
 	
 	if is_on_ceiling() or is_on_floor():
 		movement.y = 0 
@@ -32,7 +30,6 @@ func _process(delta):
 
 	check_key_input()
 	check_for_stomp()
-	
 	
 	set_animation()
 
@@ -45,7 +42,7 @@ func check_key_input():
 		movement.x = -1 * SPEED
 	if Input.is_action_pressed(\"right\"):
 		movement.x = 1 * SPEED
-	if Input.is_action_pressed(\"jump\") and is_on_floor():
+	if Input.is_action_pressed(\"jump\") and movement.y > -50:
 		movement.y = -JUMP_POWER
 		
 func set_animation():
@@ -61,15 +58,11 @@ func set_animation():
 		$AnimationPlayer.play(\"go\")
 
 
-
 		
 func check_for_stomp():
 	for body in $HitBox.get_overlapping_bodies():
 		if body.has_method(\"is_shirmp\"):
 			is_alive = false
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	print(\"finished\")
 "
 
 [sub_resource type="RectangleShape2D" id=2]

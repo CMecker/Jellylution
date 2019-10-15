@@ -23,15 +23,12 @@ func _ready():
 func spawn():
 	while true:
 		randomize()
-		
 		var enemy = enemy_shrimp.instance()
 		var pos = Vector2()
 		pos.x = 0
-		pos.y = rand_range(-16, get_viewport().get_visible_rect().size[1]-16)
-		print(pos)
+		pos.y = rand_range(0, get_viewport().get_visible_rect().size[1]-344)
 		enemy.position = pos
 		get_node(\"container\").add_child(enemy)
-		
 		yield(create_timer(2), \"timeout\")
 	pass"
 
